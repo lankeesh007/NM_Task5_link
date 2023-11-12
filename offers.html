@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - EAT@</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add any additional CSS styles specific to your Offers page here -->
+</head>
+<body style=" background-color:#FFD54F;">
+    <style>
+        /* Define the keyframes for the zoom effect */
+        @keyframes zoomIn {
+        0% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.1);
+        }
+        100% {
+        transform: scale(1);
+        }
+        }
+        /* Apply the animation and shadow to the logo */
+        .navbar-brand img {
+        animation: zoomIn 2s infinite;
+        /* You can adjust the duration, iteration count, and other properties */
+        transition: box-shadow 0.3s ease-in-out;
+        }
+        .navbar-brand img:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+        }
+        .head,body{
+        font-family:Georgia, 'Times New Roman', Times, serif; font-style: italic;font-weight: bold; 
+        }
+
+        .custom-background{
+       background-color: #dba212;
+        }
+        /* CSS for Testimonials Hover Effect */
+        .testimonial-section .testimonial-card {
+         position: relative;
+        transition: transform 0.3s;
+        }
+
+        .testimonial-section .testimonial-card:hover {
+         transform: scale(1.05); /* Increase the card size on hover */
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add a shadow on hover */
+        }
+            /* Basic styles for the header */
+            header {
+            background-image: url('/imgs/header.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #f5f5f5;
+            font-size: 3em;
+            margin: 20px 0;
+            animation: slideInDown 1s both;
+        }
+
+        p {
+            color: #f5f5f5;
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeIn 2s both;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            font-size: 1.2em;
+            margin-top: 20px;
+            animation: fadeIn 2s both;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #eee;
+        }
+
+        /* Additional feature styles */
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 2s both;
+        }
+
+        .col-md-4 {
+            text-align: center;
+            animation: slideIn 1s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Basic styles for the container */
+        .container {
+            background-color: #f0c60aca;
+            border-radius: 4%;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Section titles */
+        h2 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #f5f5f5;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: #f5f5f5;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        /* Testimonials */
+        .testimonial-section {
+            background-color: #f0c60aca;
+        }
+        .card {
+            background-color: transparent;
+            border: none;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            margin-bottom: 30px;
+        }
+        .card:hover {
+            transform: scale(1.09);
+            background-color: rgba(240, 198, 12, 0.5);
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .card-text {
+            font-size: 1.2em;
+            color: #222;
+        }
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Form button */
+        .btn-primary {
+            background-color: #f0c60aca;
+            border-color: #f0c60aca;
+        }
+
+        .btn-primary:hover {
+            background-color: #f0c60a;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a; /* Hover color */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* Additional features */
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+        /* Navbar styling */
+        .navbar {
+        background-color: #dba212 /* Change to your desired background color */
+        }
+        .navbar-brand img {
+        border-radius: 6%;
+        padding-left: 9%;
+        }
+
+        /* Dropdown styling */
+        .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        }
+        .navbar-nav .nav-item {
+            padding: 15px; /* Adjust the padding as needed */
+            transition: transform 0.2s; /* Add transition for smoother animation */
+        }
+        /* Hide sections initially */
+        .my-5 {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        /* Style for the search input field */
+        .input-group .form-control {
+            border-radius: 0; /* Remove rounded corners */
+            border-right: none; /* Remove right border */
+        }
+
+        /* Style for the search icon button */
+        .input-group .btn {
+            border-radius: 0; /* Remove rounded corners */
+            background-color: #f0eaea; /* Match the background color */
+            margin: auto;
+        }
+
+  /* Footer styling */
+  footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a; /* Hover color */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* Additional features */
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+
+</style>
+  <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #ffcc00;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #dba212; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-utensils me-2"></i> Restaurants
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-info-circle me-2"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Content Section for Offers -->
+    <div class="container mt-5" style="background-image:url('https://img.freepik.com/free-photo/sales-with-paper-bags-concept-orange-background-copy-space_23-2148305926.jpg?w=1380&t=st=1699636592~exp=1699637192~hmac=1f6ec9b5ac17befe1ae33e5e40319271d53356cf2af0bb0757d05dbe42e9b6b5');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;">
+        <h1>Special Offers & Discount</h1>
+        <p>Check out our latest special offers and discounts.</p>
+        <!-- Offer Cards -->
+        <div class="row">
+            <!-- Offer Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/free-photo/pub-promo-with-delicious-burger_23-2148868251.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Offer 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Burger Combo!</h5>
+                        <p class="card-text">Savor the timeless flavors of our Classic Burger Combo! Sink your teeth into a juicy, perfectly grilled beef patty, topped with melted cheddar cheese, crisp lettuce, ripe tomatoes, and our signature secret sauce. Order now and enjoy a mouthwatering experience at a special discounted price – because classics never go out of style!.</p>
+                        <p class="original-price">Original Price: $100</p>
+                        <p class="discounted-price">Discounted Price: $80</p>
+                        <p class="validity">Valid until: December 31, 2023</p>
+                        <p class="terms">Terms and Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget...</p>
+                        
+                        <!-- Add a "Read More" button that opens a modal -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Offer Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/free-photo/high-angle-thanksgiving-dinner-arrangement_23-2148681836.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Offer 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Carnival for All Mixed Dishes:</h5>
+                        <p class="card-text">Join the Combo Carnival and treat your family to a feast of flavors! Our family pack includes a mix of our most popular items – burgers, wraps, and sides – ensuring there's something for everyone. And the best part? Enjoy this carnival of flavors with an exclusive discount that makes it a true family-friendly affair!</p>
+                        <p class="original-price">Original Price: $350</p>
+                        <p class="discounted-price">Discounted Price: $50</p>
+                        <p class="validity">Valid until: December 29, 2023</p>
+                        <p class="terms">Terms and Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget...</p>
+                        
+                        <!-- Add a "Read More" button that opens a modal -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Offer Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/premium-photo/brazilian-pizza-with-barbecue-sauce-grilled-chicken-onion-oregano-delivery-box-pizza-bbq-chicken-top-view_311876-438.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Offer 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Two-for-One Pizza Special:</h5>
+                        <p class="card-text">Double the joy with our Two-for-One Pizza Special! Order any large pizza from our menu and get a second one of equal or lesser value at half price. It's the perfect opportunity to try new flavors or indulge in your all-time favorites. Grab a friend, and let the pizza celebration begin!.</p>
+                        <p class="original-price">Original Price: $200</p>
+                        <p class="discounted-price">Discounted Price: $65</p>
+                        <p class="validity">Valid until: December 20, 2023</p>
+                        <p class="terms">Terms and Conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget...</p>
+                        <!-- Add a "Read More" button that opens a modal -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Content Section for Offers -->
+        <div class="container mt-5">
+            <h1>Combo Offers</h1>
+            <!-- Offer Cards -->
+        <div class="row">
+            <!-- Offer Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/premium-photo/hamburger-is-flying-through-air-is-flying-through-air_729592-304.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais">
+                    <div class="card-body">
+                    <h2>Burger Ultimate Combo Offer</h2>
+                    <p>🍔🎉.</p>
+                    <p>Price: $25.99</p>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                    </div>
+                </div>
+            </div>
+                <!-- Offer Card 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://img.freepik.com/free-photo/side-view-pizza-with-slices-bell-pepper-pizza-slices-flour-board-cookware_176474-3185.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais">
+                        <div class="card-body">
+                            <h2>🍕🎉 Introducing the Ultimate Pizza Party Combo! 🎉🍕</h2>
+                            <p>🎉🍕</p>
+                            <p>Price: $19.99</p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer Card 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://img.freepik.com/free-photo/side-view-mojito-cocktail-with-mint-lime-ice-ice-bucket_176474-2500.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais">
+                        <div class="card-body">
+                            <h2>🥤🎉 Introducing the Thirst Quencher Combo! 🎉🥤</h2>
+                            <p>🥤🎉</p>
+                            <p>Price: $39.99</p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#offerModal1">Read More</button>
+                        </div>
+                      </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+    <script>
+            // Add smooth scrolling to anchor links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000); // You can adjust the duration (in milliseconds) to control the scroll speed
+                }
+            });
+    
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // Function to handle animations
+        function animateSections() {
+            const sections = document.querySelectorAll('.my-5');
+    
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        // Add an event listener for scroll
+        window.addEventListener('scroll', animateSections);
+        // Initial call to animate sections when the page loads
+        animateSections();
+    </script>
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle the navigation when the toggle icon is clicked
+            $('.navbar-toggler').click(function() {
+                $('#navbarNav').toggleClass('show');
+            });
+        });
+    </script>  
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Welcome to Eat@, your one-stop destination for delicious food delivered to your doorstep. We are passionate about serving quality meals made from fresh ingredients.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> 9791234293</li>
+                        <li><i class="fas fa-envelope"></i> info@eatat.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect with Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                        <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                        <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                        <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                        <!-- Add more social icons as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Restaurants for Food Delivery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+       <!-- Custom CSS -->
+       <style>
+              body {
+           background-color:#FFD54F;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+   
+        .container {
+            padding: 40px 15px;
+        }
+
+   
+
+        .card {
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #b52f2f;
+        }
+
+        .card-text {
+            color: #444;
+        }
+
+        .card-text.text-primary {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #b52f2f;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #4682B4;
+        }
+        
+
+
+          /* Common CSS styles for various elements */
+
+          body {
+            background-color: #FFC107;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 40px 15px;
+        }
+
+        .navbar {
+            background-color: #dba212;
+        }
+
+        .navbar-brand img {
+            border-radius: 6%;
+            padding-left: 9%;
+        }
+
+        .nav-item {
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .input-group .btn {
+            border-radius: 0;
+            background-color: #f0eaea;
+            margin: auto;
+        }
+
+        .bgmnubtn {
+            background-image: url('/imgs/menubgimg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .animated-button {
+            background-color: #ccc;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .animated-button:hover {
+            background-color: #555;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .animated-button {
+                font-size: 14px;
+            }
+        }
+
+        .restaurant-card {
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .restaurant-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #BA0C2E;
+        }
+
+        .card-text {
+            color: #444;
+        }
+
+        .card-text.text-primary {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #BA0C2E;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #4682B4;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            color: #f0c60a;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            font-size: 24px;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer .social-icons a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .address,
+        .phone,
+        .email {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            footer .social-icons a {
+                font-size: 20px;
+            }
+
+            footer a {
+                font-size: 16px;
+            }
+        }
+      
+            /* Style for the profile dropdown */
+            .dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               border-radius: 20%;
+           }
+   
+           .dropdown:hover .dropdown-content {
+               display: block;
+           }
+   
+           .dropdown-content a {
+               color: #fff; /* Dropdown link color */
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+               border-radius: 40%;
+           }
+   
+           .dropdown-content a:hover {
+               background-color: #c3991ae7; /* Dropdown link background color on hover */
+               color: #0fcfcc;
+           }
+   
+           /* Style for the secondary dropdown */
+           .sub-dropdown {
+               position: relative;
+               display: inline-block;
+           }
+   
+           .sub-dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #c58a0bb8; /* Dropdown background color */
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;
+               top: 0;
+               right: 100%;
+               border-radius: 23%;
+           }
+   
+           .sub-dropdown:hover .sub-dropdown-content {
+               display: block;
+           }
+           /* Define the keyframes for the zoom effect */
+   @keyframes zoomIn {
+       0% {
+           transform: scale(1);
+       }
+       50% {
+           transform: scale(1.1);
+       }
+       100% {
+           transform: scale(1);
+       }
+   }
+   
+   /* Apply the animation and shadow to the logo */
+   .navbar-brand img {
+       animation: zoomIn 2s infinite;
+       /* You can adjust the duration, iteration count, and other properties */
+       transition: box-shadow 0.3s ease-in-out;
+   }
+   .navbar-brand img:hover {
+       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+   }
+     .custom-background{
+       background-color: #dba212;
+     }
+   
+        /* Your existing CSS styles for menu.html */
+   
+   /* Make menu cards responsive */
+   .card {
+       margin: 10px;
+       padding: 10px;
+   }    
+            /* Navbar styling */
+            .navbar {
+           background-color: #dba212 /* Change to your desired background color */
+           }
+           .navbar-brand img {
+           border-radius: 6%;
+           padding-left: 9%;
+           }
+   
+           /* Dropdown styling */
+           .nav-item.dropdown:hover .dropdown-menu {
+           display: block;
+           }
+           .navbar-nav .nav-item {
+               padding: 15px; /* Adjust the padding as needed */
+               transition: transform 0.2s; /* Add transition for smoother animation */
+           }
+        
+         
+       </style>
+</head>
+
+<body style="background-color: #FFC107;">
+ <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-yellow" style="background-color: #ffcc00;">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Your Logo" width="100" height="100" class="rounded-3" style="margin-left: 5%; padding: 5%;">
+        </a>
+        
+        <div class="container;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #dba212; padding-right: 0%;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-utensils me-2"></i> Restaurants
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="nearbyees.html">Nearby</a></li>
+                            <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tags me-2"></i> Offers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="offers.html">Discounts & Combo Offers</a></li> <!-- Fixed typo here -->
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-info-circle me-2"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html"><i class="fas fa-book-open me-2"></i> Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-star me-2"></i> Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-phone me-2"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="background-color: #f0eaea;">
+                            <div class="input-group-append" style="background-color: #f0eaea;">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+       <div class="container">
+        <h1 class="text-center mt-4">Nearby Restaurants</h1>
+        <p class="lead text-center">Order from a variety of restaurants for delivery!</p>
+
+        <div class="row">
+            <!-- Restaurant Cards -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-vector/indian-cuisine-menu-black-board-poster_1284-9077.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">INDIAN FOOD HUT</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-vector/asian-food-menu_98292-736.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">CHINA XO</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-vector/indian-food-banners-set_1284-7748.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">FOODI BOWL</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-vector/gradient-korean-restaurant-poster_23-2149621690.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">BTS HUNTS</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-psd/wavy-lines-food-business-poster-template_23-2150306435.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">JAPNESE BOWL</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card restaurant-card">
+                    <img src="https://img.freepik.com/free-vector/retro-promotional-poster-dubai-template_23-2148306740.jpg?size=626&ext=jpg&ga=GA1.1.1895827431.1698161776&semt=ais" class="card-img-top" alt="Restaurant 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">HOTEL DUBAI</h5>
+                        <p class="card-text">Delicious cuisine and great service.</p>
+                        <a href="#" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+           <!-- Footer styling -->
+<footer class="bg-dark text-white py-4">
+    <div class="container" style="background-color: #dba212; border-radius: 3%;">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>About Us</h4>
+                <p>Welcome to Eat@, your one-stop destination for delicious food delivered to your doorstep. We are passionate about serving quality meals made from fresh ingredients.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                    <li><i class="fas fa-phone"></i> 9791234293</li>
+                    <li><i class="fas fa-envelope"></i> info@eatat.com</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Connect with Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook" style="color: rgb(0, 51, 255);"></a>
+                    <a href="#" class="fab fa-instagram" style="color: rgb(255, 30, 0);"></a>
+                    <a href="#" class="fab fa-linkedin" style="color: rgb(0, 123, 255);"></a>
+                    <a href="#" class="fab fa-pinterest" style="color: rgb(255, 0, 0);"></a>
+                    <!-- Add more social icons as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
